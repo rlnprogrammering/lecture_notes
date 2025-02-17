@@ -178,3 +178,20 @@ Bringing machine 'webserver' up with 'virtualbox' provider...
 
 If everything starts error-free, you will find the running _ITU-MiniTwit_ at http://192.168.20.3:5000. With `vagrant ssh webserver` you can access the machine with the frontend code.
 
+### FAQ
+- [Virtualbox doesn't work on my arm64 machine (E.g. Macbook M1)][virtualbox-issue]
+
+[virtualbox-issue]: https://github.com/itu-devops/lecture_notes/edit/master/sessions/session_03/README_PREP.md#virtualbox-doesnt-work-on-my-arm64-machine-eg-macbook-m1
+
+#### Virtualbox doesn't work on my arm64 machine (E.g. Macbook M1)
+1. Download UTM either via their UI: https://mac.getutm.app/ or with brew: `brew install --cask utm`
+2. Initialize the Vagrantfile with utm as a provider
+3. Run `vagrant up --provider=utm`
+   * Before running the `vagrant up` command, you should check if you have a Vagrantfile with a config looking like this:
+    ``` ruby
+    Vagrant.configure("2") do |config|
+      config.vm.box = "utm/bookworm"
+    end
+    ```
+**CMD example here:**
+![image](https://github.com/user-attachments/assets/caa0d35c-2865-42d1-8272-3d7e59fdec14)
